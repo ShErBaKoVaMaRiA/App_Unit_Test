@@ -44,7 +44,8 @@
         android:layout_marginBottom="108dp"
         android:text="Зарегистрироваться"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="97dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
 
