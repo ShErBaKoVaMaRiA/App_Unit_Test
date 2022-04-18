@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class Units {
 
-    public boolean validateAccount(Context ctx,Model_User account){
+    public static boolean validateAccount(Context ctx,Model_User account){
         if(account.Email.equals("")||account.Password.equals("")||account.Password_Confirm.equals(""))
             Toast.makeText(ctx, "Все или некоторые поля не заполнены!", Toast.LENGTH_SHORT).show();
         else{
@@ -30,15 +30,18 @@ public class Units {
         }
         return false;
     }
-    public boolean checkEmailForValidity(String email){
+    public static boolean Valid_Account(Model_User user){
+        return checkEmailForValidity(user.Email)&&checkPasswordForValidity(user.Password)&&checkPasswords(user.Password, user.Password_Confirm);
+    }
+    public static boolean checkEmailForValidity(String email){
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         return matcher.find();
     }
-    public boolean checkPasswordForValidity(String password){
+    public static boolean checkPasswordForValidity(String password){
         Matcher matcher = VALID_PASSWORD_REGEX.matcher(password);
         return matcher.find();
     }
-    public boolean checkPasswords(String password, String password_confirm){
+    public static boolean checkPasswords(String password, String password_confirm){
         if(password.equals(password_confirm))
         return true;
         else return false;
